@@ -1,0 +1,21 @@
+<nav class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-md border-b border-gray-100">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <a href="/index.html" class="flex items-center gap-2 group">
+            <div class="w-10 h-10 bg-brand-black rounded-full flex items-center justify-center text-white font-bold text-xl">DH</div>
+            <span class="font-heading font-bold text-lg hidden sm:block">Društvo<span class="text-brand-red">hispanista</span></span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8 font-heading font-semibold text-sm uppercase">
+            <a href="/index.html" class="nav-link hover:text-brand-red" data-i18n="nav_home">Početna</a>
+            <a href="/about.html" class="nav-link hover:text-brand-red" data-i18n="nav_about">O nama</a>
+            <a href="/projects/index.html" class="nav-link hover:text-brand-red" data-i18n="nav_projects">Projekti</a>
+            <a href="/contact.html" class="nav-link hover:text-brand-red" data-i18n="nav_contact">Kontakt</a>
+        </div>
+        
+        <div class="flex items-center gap-2 text-xs font-bold uppercase">
+            <button onclick="changeLang('sr')" id="btn-sr">SRB</button> |
+            <button onclick="changeLang('es')" id="btn-es">ESP</button> |
+            <button onclick="changeLang('en')" id="btn-en">ENG</button>
+        </div>
+    </div>
+</nav>

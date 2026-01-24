@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekti - Društvo hispanista</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { red: '#D10000', black: '#000000', dark: '#1a1a1a' }
+                    },
+                    fontFamily: { sans: ['Open Sans', 'sans-serif'], heading: ['Montserrat', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-white text-gray-800 flex flex-col min-h-screen">
+
+    <div id="header-placeholder"></div>
+
+    <main class="flex-grow fade-in">
+        <div class="bg-brand-black text-white py-16">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="font-heading text-3xl md:text-5xl font-bold mb-4" data-i18n="projects_title">Projekti</h1>
+                <p class="text-gray-400 max-w-2xl mx-auto" data-i18n="projects_subtitle">Istražite naše inicijative, prošle događaje i buduće planove.</p>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 py-16">
+            
+            <h2 class="font-heading text-2xl font-bold mb-8 border-b pb-2">Aktuelno</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <a href="/projects/schools/2026-sr.html" class="group relative overflow-hidden rounded-xl shadow-lg border border-gray-200 bg-white hover:shadow-xl transition-all transform hover:-translate-y-1 block">
+                    <div class="h-48 bg-brand-red flex items-center justify-center text-white relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition"></div>
+                        <i data-lucide="calendar" class="w-16 h-16"></i>
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="font-heading text-2xl font-bold mb-2 group-hover:text-brand-red transition" data-i18n="overview_2026_title">Letnja škola 2026</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="overview_2026_desc">Predstojeće izdanje. Informacije, prijave i najave.</p>
+                        <span class="inline-block text-brand-red font-bold text-sm uppercase tracking-wider">Saznaj više &rarr;</span>
+                    </div>
+                </a>
+            </div>
+
+            <h2 class="font-heading text-2xl font-bold mb-8 border-b pb-2">Arhiva Letnjih Škola</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                
+                <a href="/projects/schools/2024-sr.html" class="block bg-gray-50 rounded-lg p-6 border hover:border-brand-red hover:shadow-md transition">
+                    <div class="text-4xl font-bold text-gray-200 mb-2">2024</div>
+                    <h3 class="font-bold text-xl mb-2">EVELA 2024</h3>
+                    <p class="text-sm text-gray-600">Beograd & Novi Sad</p>
+                </a>
+
+                <a href="/projects/schools/2018-sr.html" class="block bg-gray-50 rounded-lg p-6 border hover:border-brand-red hover:shadow-md transition">
+                    <div class="text-4xl font-bold text-gray-200 mb-2">2018</div>
+                    <h3 class="font-bold text-xl mb-2">Construyendo puentes</h3>
+                    <p class="text-sm text-gray-600">Specijalno izdanje</p>
+                </a>
+
+                <a href="/projects/schools/2017-sr.html" class="block bg-gray-50 rounded-lg p-6 border hover:border-brand-red hover:shadow-md transition">
+                    <div class="text-4xl font-bold text-gray-200 mb-2">2017</div>
+                    <h3 class="font-bold text-xl mb-2">Izazovi modernog sveta</h3>
+                    <p class="text-sm text-gray-600">Prvo izdanje</p>
+                </a>
+
+            </div>
+
+            <h2 class="font-heading text-2xl font-bold mb-8 border-b pb-2">Ostali Projekti</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <a href="/projects/other/revista-reflejo-sr.html" class="block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center text-gray-400 relative">
+                        <i data-lucide="book-open" class="w-12 h-12"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1 text-brand-black">Revista Reflejo</h3>
+                        <p class="text-brand-red text-sm font-bold uppercase mb-4">Publikacija</p>
+                        <p class="text-gray-600 text-sm" data-i18n="other_reflejo_desc">Zvanična publikacija Udruženja.</p>
+                    </div>
+                </a>
+
+                <a href="/projects/other/praksa-sr.html" class="block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center text-gray-400 relative">
+                        <i data-lucide="briefcase" class="w-12 h-12"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1 text-brand-black">Praktična Nastava</h3>
+                        <p class="text-brand-red text-sm font-bold uppercase mb-4">Edukacija</p>
+                        <p class="text-gray-600 text-sm" data-i18n="other_intern_desc">Organizacija praksi u ambasadama.</p>
+                    </div>
+                </a>
+
+                <a href="/projects/other/kultura-sr.html" class="block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center text-gray-400 relative">
+                        <i data-lucide="theater" class="w-12 h-12"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1 text-brand-black">Kultura & Pozorište</h3>
+                        <p class="text-brand-red text-sm font-bold uppercase mb-4">Umetnost</p>
+                        <p class="text-gray-600 text-sm" data-i18n="other_culture_desc">Dani hispaniteta i predstave.</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/components.js"></script>
+</body>
+</html>

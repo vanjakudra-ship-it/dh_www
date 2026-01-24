@@ -1,0 +1,39 @@
+/* 1. Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap');
+
+/* 2. Base Settings */
+body {
+    scroll-behavior: smooth;
+}
+
+/* 3. Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 4. Custom Patterns */
+.hero-pattern {
+    background-image: radial-gradient(#D10000 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.1;
+}
+
+/* 5. Utility Helpers (Optional) */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #D10000;
+    transition: width 0.3s;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
