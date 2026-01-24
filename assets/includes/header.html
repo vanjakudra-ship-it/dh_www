@@ -1,21 +1,61 @@
 <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-md border-b border-gray-100">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
         <a href="/index.html" class="flex items-center gap-2 group">
-            <div class="w-10 h-10 bg-brand-black rounded-full flex items-center justify-center text-white font-bold text-xl">DH</div>
-            <span class="font-heading font-bold text-lg hidden sm:block">Društvo<span class="text-brand-red">hispanista</span></span>
+            <div class="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white font-bold text-xl">DH</div>
+            <span class="font-heading font-bold text-lg hidden sm:block">Društvo<span class="text-[#D10000]">hispanista</span></span>
         </a>
 
         <div class="hidden md:flex items-center gap-8 font-heading font-semibold text-sm uppercase">
-            <a href="/index.html" class="nav-link hover:text-brand-red" data-i18n="nav_home">Početna</a>
-            <a href="/about.html" class="nav-link hover:text-brand-red" data-i18n="nav_about">O nama</a>
-            <a href="/projects/index.html" class="nav-link hover:text-brand-red" data-i18n="nav_projects">Projekti</a>
-            <a href="/contact.html" class="nav-link hover:text-brand-red" data-i18n="nav_contact">Kontakt</a>
+            <a href="/index.html" class="hover:text-[#D10000] transition" data-i18n="nav_home">Početna</a>
+            <a href="/about.html" class="hover:text-[#D10000] transition" data-i18n="nav_about">O nama</a>
+            
+            <div class="relative group py-3"> <button class="flex items-center gap-1 hover:text-[#D10000] transition uppercase font-semibold">
+                    <span data-i18n="nav_projects">Projekti</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                </button>
+                
+                <div class="absolute left-0 top-full pt-2 hidden group-hover:block w-64 fade-in">
+                    <div class="bg-white shadow-xl rounded-lg border-t-4 border-[#D10000] overflow-hidden flex flex-col">
+                        <a href="/projects/index.html" class="px-5 py-3 hover:bg-gray-50 text-gray-700 hover:text-[#D10000] border-b border-gray-100" data-i18n="nav_proj_overview">Pregled</a>
+                        <a href="/projects/schools/2026-sr.html" class="px-5 py-3 hover:bg-gray-50 text-gray-700 hover:text-[#D10000] border-b border-gray-100" data-i18n="nav_proj_2026">Letnja škola 2026</a>
+                        <a href="/projects/index.html#archive" class="px-5 py-3 hover:bg-gray-50 text-gray-700 hover:text-[#D10000] border-b border-gray-100" data-i18n="nav_proj_archive">Arhiva</a>
+                        <a href="/projects/index.html#other" class="px-5 py-3 hover:bg-gray-50 text-gray-700 hover:text-[#D10000]" data-i18n="nav_proj_other">Ostali Projekti</a>
+                    </div>
+                </div>
+            </div>
+
+            <a href="/contact.html" class="hover:text-[#D10000] transition" data-i18n="nav_contact">Kontakt</a>
         </div>
-        
-        <div class="flex items-center gap-2 text-xs font-bold uppercase">
-            <button onclick="changeLang('sr')" id="btn-sr">SRB</button> |
-            <button onclick="changeLang('es')" id="btn-es">ESP</button> |
-            <button onclick="changeLang('en')" id="btn-en">ENG</button>
+
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 text-xs font-bold uppercase">
+                <button onclick="changeLang('sr')" id="btn-sr" class="hover:bg-gray-100 px-2 py-1 rounded">SRB</button> |
+                <button onclick="changeLang('es')" id="btn-es" class="hover:bg-gray-100 px-2 py-1 rounded">ESP</button> |
+                <button onclick="changeLang('en')" id="btn-en" class="hover:bg-gray-100 px-2 py-1 rounded">ENG</button>
+            </div>
+            
+            <button class="md:hidden text-black" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg h-screen overflow-y-auto">
+        <div class="flex flex-col p-6 gap-6 font-heading font-semibold uppercase">
+            <a href="/index.html" class="hover:text-[#D10000]" data-i18n="nav_home">Početna</a>
+            <a href="/about.html" class="hover:text-[#D10000]" data-i18n="nav_about">O nama</a>
+            
+            <div class="bg-gray-50 rounded-lg p-4">
+                <span class="text-[#D10000] block mb-3 border-b border-gray-200 pb-2" data-i18n="nav_projects">Projekti</span>
+                <div class="flex flex-col gap-3 pl-2 text-sm text-gray-600 normal-case font-sans">
+                    <a href="/projects/index.html" class="hover:text-black" data-i18n="nav_proj_overview">Pregled</a>
+                    <a href="/projects/schools/2026-sr.html" class="hover:text-black" data-i18n="nav_proj_2026">Letnja škola 2026</a>
+                    <a href="/projects/index.html#archive" class="hover:text-black" data-i18n="nav_proj_archive">Arhiva</a>
+                    <a href="/projects/index.html#other" class="hover:text-black" data-i18n="nav_proj_other">Ostali Projekti</a>
+                </div>
+            </div>
+
+            <a href="/contact.html" class="hover:text-[#D10000]" data-i18n="nav_contact">Kontakt</a>
         </div>
     </div>
 </nav>
