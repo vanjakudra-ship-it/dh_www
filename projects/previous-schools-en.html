@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arhiva Letnjih Škola - Društvo hispanista</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/assets/js/theme-config.js"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white text-gray-800 flex flex-col min-h-screen">
+
+    <div id="header-placeholder"></div>
+
+    <main class="flex-grow fade-in">
+        <div class="bg-brand-black text-white py-16">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="font-heading text-3xl md:text-5xl font-bold mb-4">Arhiva Letnjih Škola</h1>
+                <p class="text-gray-400 max-w-2xl mx-auto">Kompletan pregled svih održanih škola, predavanja i aktivnosti.</p>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6">
+            
+            <div id="schools-feed" class="flex flex-col">
+                <div id="loading" class="text-center py-20 text-gray-400">
+                    <p>Učitavanje arhive...</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/components.js"></script>
+
+    <script>
+        // List your files (Newest first)
+        const schoolFiles = [
+            '/projects/schools/2024-en.html',
+            // '/projects/schools/2018-en.html',  <-- Create these next!
+            // '/projects/schools/2017-en.html'
+        ];
+
+        async function loadSchools() {
+            const container = document.getElementById('schools-feed');
+            const loading = document.getElementById('loading');
+
+            for (const url of schoolFiles) {
+                try {
+                    const response = await fetch(url);
+                    const htmlText = await response.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(htmlText, 'text/html');
+
+                    // Extract the FULL content wrapper
+                    const content = doc.querySelector('#school-content');
+
+                    if (content) {
+                        container.appendChild(content);
+                    }
+                } catch (error) {
+                    console.error('Error loading school:', url, error);
+                }
+            }
+
+            if(loading) loading.style.display = 'none';
+            if(window.lucide) lucide.createIcons();
+        }
+
+        document.addEventListener('DOMContentLoaded', loadSchools);
+    </script>
+</body>
+</html>

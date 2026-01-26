@@ -95,3 +95,115 @@ document.addEventListener("DOMContentLoaded", () => {
     const savedLang = localStorage.getItem('lang') || 'sr';
     changeLang(savedLang);
 });
+
+/* =========================================
+   LIGHTBOX / GALLERY LOGIC
+   ========================================= */
+let currentImageIndex = 0;
+let galleryImages = [];
+
+function initLightbox() {
+    // 1. Find all gallery images on the page
+    const images = document.querySelectorAll('.gallery-item');
+    
+    if (images.length > 0) {
+        // Save sources to array
+        galleryImages = Array.from(images).map(img => img.src);
+
+        // 2. Inject the Modal HTML into the body (if not already there)
+        if (!document.getElementById('lightbox-modal')) {
+            const modalHTML = `
+                <div id="lightbox-modal" class="fixed inset-0 z-[100] bg-black/95 hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
+                    
+                    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-brand-red transition z-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+
+                    <button onclick="changeSlide(-1)" class="absolute left-4 md:left-8 text-white hover:text-brand-red transition p-2 bg-black/50 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+
+                    <img id="lightbox-img" src="" class="max-h-[90vh] max-w-[90vw] object-contain rounded-md shadow-2xl transform scale-95 transition-transform duration-300">
+
+                    <button onclick="changeSlide(1)" class="absolute right-4 md:right-8 text-white hover:text-brand-red transition p-2 bg-black/50 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                    
+                    <div id="lightbox-counter" class="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-gray-400 text-sm font-heading tracking-widest">
+                        1 / 5
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+
+        // 3. Add click events to the images
+        images.forEach((img, index) => {
+            img.style.cursor = 'zoom-in';
+            img.onclick = () => openLightbox(index);
+        });
+    }
+}
+
+function openLightbox(index) {
+    currentImageIndex = index;
+    const modal = document.getElementById('lightbox-modal');
+    const img = document.getElementById('lightbox-img');
+    
+    // Update Content
+    updateLightboxImage();
+    
+    // Show Modal
+    modal.classList.remove('hidden');
+    // Small delay to allow display:block to apply before opacity transition
+    setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        img.classList.remove('scale-95');
+        img.classList.add('scale-100');
+    }, 10);
+    
+    // Prevent background scrolling
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    const modal = document.getElementById('lightbox-modal');
+    const img = document.getElementById('lightbox-img');
+    
+    modal.classList.add('opacity-0');
+    img.classList.add('scale-95');
+    img.classList.remove('scale-100');
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }, 300);
+}
+
+function changeSlide(step) {
+    currentImageIndex += step;
+    
+    // Loop navigation
+    if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
+    if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
+    
+    updateLightboxImage();
+}
+
+function updateLightboxImage() {
+    const img = document.getElementById('lightbox-img');
+    const counter = document.getElementById('lightbox-counter');
+    
+    img.src = galleryImages[currentImageIndex];
+    counter.innerText = `${currentImageIndex + 1} / ${galleryImages.length}`;
+}
+
+// Close on Escape Key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') changeSlide(-1);
+    if (e.key === 'ArrowRight') changeSlide(1);
+});
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', initLightbox);

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ostali Projekti - Društvo hispanista</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/assets/js/theme-config.js"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white text-gray-800 flex flex-col min-h-screen">
+
+    <div id="header-placeholder"></div>
+
+    <main class="flex-grow fade-in">
+        <div class="bg-brand-black text-white py-16">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="font-heading text-3xl md:text-5xl font-bold mb-4">Ostali Projekti</h1>
+                <p class="text-gray-400 max-w-2xl mx-auto">Inicijative, publikacije i kulturni programi.</p>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 py-16">
+            
+            <div id="projects-feed" class="flex flex-col gap-12">
+                <div id="loading" class="text-center py-12 text-gray-400">
+                    <p>Učitavanje projekata...</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/components.js"></script>
+
+    <script>
+        // 1. Define your file list here
+        const projectFiles = [
+            '/projects/other/revista-reflejo-sr.html',
+            '/projects/other/praksa-sr.html',
+            '/projects/other/kultura-sr.html'
+            // Add new files here as you create them
+        ];
+
+        async function loadProjects() {
+            const container = document.getElementById('projects-feed');
+            const loading = document.getElementById('loading');
+
+            // 2. Loop through files
+            for (const url of projectFiles) {
+                try {
+                    // Fetch the file
+                    const response = await fetch(url);
+                    const htmlText = await response.text();
+
+                    // Parse the HTML text into a virtual DOM
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(htmlText, 'text/html');
+
+                    // 3. Extract ONLY the #project-card div
+                    const cardContent = doc.querySelector('#project-card');
+
+                    if (cardContent) {
+                        // Append it to our main page
+                        container.appendChild(cardContent);
+                    }
+                } catch (error) {
+                    console.error('Error loading project:', url, error);
+                }
+            }
+
+            // Remove loading text
+            if(loading) loading.style.display = 'none';
+            
+            // Refresh icons (since we added new HTML)
+            if(window.lucide) lucide.createIcons();
+        }
+
+        // Run on load
+        document.addEventListener('DOMContentLoaded', loadProjects);
+    </script>
+</body>
+</html>

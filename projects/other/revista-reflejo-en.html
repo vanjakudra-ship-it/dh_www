@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revista Reflejo - Društvo hispanista</title>
-    
+    <title>Revista Reflejo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/assets/js/theme-config.js"></script>
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -14,59 +13,32 @@
 
     <div id="header-placeholder"></div>
 
-    <main class="flex-grow fade-in">
-        <div class="bg-gray-50 border-b px-6 py-4">
-            <div class="container mx-auto">
-                <a href="/projects/index-en.html#other" class="text-sm text-gray-500 hover:text-brand-red flex items-center gap-1">
-                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Other Projects
-                </a>
+    <main class="flex-grow fade-in container mx-auto px-6 py-12">
+        
+        <div id="project-card" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden flex flex-col md:flex-row mb-12">
+            
+            <div class="w-full md:w-5/12 bg-gray-100 flex items-center justify-center text-gray-400 min-h-[300px] relative">
+                <i data-lucide="book-open" class="w-24 h-24"></i>
+            </div>
+            
+            <div class="p-8 md:p-12 w-full md:w-7/12 flex flex-col justify-center">
+                <div class="mb-6">
+                    <span class="text-brand-red font-bold tracking-widest uppercase text-sm mb-2 block">Publikacija</span>
+                    <h2 class="font-heading text-3xl font-bold text-brand-black mb-4">Revista Reflejo</h2>
+                    <p class="text-lg text-gray-500 font-medium italic">Zvanična publikacija Udruženja hispanista.</p>
+                </div>
+
+                <div class="prose text-gray-600 leading-relaxed mb-8">
+                    <p class="mb-4">
+                        Revista Reflejo je osnovana sa ciljem da studentima i mladim istraživačima pruži priliku da objave svoje radove.
+                    </p>
+                    <p>
+                        Do sada je objavljeno <strong>20 elektronskih</strong> i <strong>5 štampanih izdanja</strong>.
+                    </p>
+                </div>
             </div>
         </div>
 
-        <div class="container mx-auto px-6 py-12 md:py-20">
-            <div class="flex flex-col md:flex-row gap-12 items-start">
-                
-                <div class="w-full md:w-5/12">
-                    <div class="bg-gray-200 rounded-xl overflow-hidden aspect-[4/3] relative shadow-lg">
-                        <div class="absolute inset-0 flex items-center justify-center text-gray-400 bg-gray-100">
-                            <i data-lucide="book-open" class="w-24 h-24"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="w-full md:w-7/12 space-y-6">
-                    <div>
-                        <span class="text-brand-red font-bold tracking-widest uppercase text-sm mb-2 block">Publication</span>
-                        <h1 class="font-heading text-4xl md:text-5xl font-bold text-brand-black mb-4">Revista Reflejo</h1>
-                        <p class="text-xl text-gray-500 font-medium">
-                            The official publication of the Association of Hispanists.
-                        </p>
-                    </div>
-
-                    <div class="prose max-w-none text-gray-600 leading-relaxed">
-                        <p class="mb-4">
-                            Revista Reflejo was founded with the aim of providing students and young researchers with an opportunity to publish their first academic and creative works. The journal covers a wide range of topics related to the Hispanic world, including literature, linguistics, history, and art.
-                        </p>
-                        <p class="mb-4">
-                            So far, <strong>20 electronic</strong> and <strong>5 printed editions</strong> have been published. We are particularly proud of our bilingual editions created in collaboration with Hispanic studies departments from the region.
-                        </p>
-                        <p>
-                            The journal is open for collaboration with all students who wish to contribute to the promotion of Hispanic culture.
-                        </p>
-                    </div>
-
-                    <div class="pt-6 flex flex-wrap gap-4">
-                        <a href="#" class="bg-brand-red text-white font-bold py-3 px-8 rounded-lg shadow hover:bg-red-700 transition">
-                            Download PDF
-                        </a>
-                        <a href="/contact-en.html" class="bg-white border-2 border-gray-200 text-brand-black font-bold py-3 px-8 rounded-lg hover:border-brand-black transition">
-                            Contact Editors
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
     </main>
 
     <div id="footer-placeholder"></div>
