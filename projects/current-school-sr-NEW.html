@@ -43,7 +43,7 @@
         <div class="bg-brand-black text-white py-12">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto">
-                    <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mb-8">
                         
                         <div class="text-center">
                             <i data-lucide="calendar" class="w-8 h-8 mx-auto mb-3 text-brand-red"></i>
@@ -59,6 +59,15 @@
                             <div class="font-heading text-2xl font-bold">Beograd, Srbija</div>
                         </div>
 
+                    </div>
+
+                    <!-- Quick Apply CTA -->
+                    <div class="text-center pt-6 border-t border-gray-800">
+                        <a href="https://forms.google.com/VASA-FORMA-LINK" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-red hover:bg-red-700 text-white rounded-lg font-semibold transition shadow-lg">
+                            <i data-lucide="file-text" class="w-5 h-5"></i>
+                            Prijavi se
+                        </a>
+                        <p class="text-xs text-gray-500 mt-3">Rok za prijavu: 31. Maj 2026</p>
                     </div>
                 </div>
             </div>
@@ -89,82 +98,149 @@
             <div class="container mx-auto px-6">
                 <div class="max-w-5xl mx-auto">
                     <span class="text-brand-red font-bold tracking-widest uppercase text-sm mb-4 block text-center">PROGRAM</span>
-                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-12 text-center">Predavači i teme</h2>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-12 text-center">Raspored predavanja</h2>
 
-                    <!-- Lecturer 1 -->
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8 border border-gray-200">
-                        <div class="md:flex">
-                            <div class="md:w-1/3 bg-gray-200 flex items-center justify-center p-8">
-                                <!-- Placeholder for lecturer photo -->
-                                <div class="w-48 h-48 bg-gray-300 rounded-full flex items-center justify-center">
-                                    <i data-lucide="user" class="w-16 h-16 text-gray-500"></i>
-                                </div>
-                                <!-- Uncomment when you have photos:
-                                <img src="/assets/images/lecturers/lecturer1.jpg" alt="Dr. Ime Prezime" class="w-48 h-48 rounded-full object-cover">
-                                -->
+                    <!-- DAY 1 - Wednesday -->
+                    <div class="mb-16">
+                        <div class="bg-brand-red text-white py-4 px-6 rounded-t-xl">
+                            <h3 class="font-heading text-2xl font-bold">Sreda, 15. Juli 2026</h3>
+                        </div>
+
+                        <!-- Lecture 1 -->
+                        <div class="border-l-4 border-brand-red pl-6 py-6 bg-white">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i data-lucide="clock" class="w-5 h-5 text-brand-red"></i>
+                                <h4 class="font-heading text-xl font-bold text-gray-800">14:00 - 15:30h</h4>
                             </div>
-                            <div class="md:w-2/3 p-8">
-                                <h3 class="font-heading text-2xl font-bold text-brand-black mb-2">Dr. Ime Prezime</h3>
-                                <p class="text-brand-red font-semibold mb-4">Tema: "Naslov predavanja"</p>
-                                
-                                <div class="text-gray-700 leading-relaxed space-y-3">
-                                    <p>
-                                        Dr. Ime Prezime je renomirani profesor na Univerzitetu XYZ, sa specijalizacijom u oblasti hispanske književnosti i kulture. Tokom svoje karijere objavio/la je brojne naučne radove i knjige.
-                                    </p>
-                                    <p>
-                                        Njegov/njen istraživački fokus uključuje... [kratak opis biografije i relevantnih dostignuća]
-                                    </p>
+                            
+                            <!-- Lecturer Card -->
+                            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden border border-gray-200">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3 bg-gray-200 flex items-center justify-center p-8">
+                                        <div class="w-40 h-40 bg-gray-300 rounded-full flex items-center justify-center">
+                                            <i data-lucide="user" class="w-12 h-12 text-gray-500"></i>
+                                        </div>
+                                    </div>
+                                    <div class="md:w-2/3 p-6">
+                                        <h3 class="font-heading text-xl font-bold text-brand-black mb-2">Prof. John Jackson</h3>
+                                        <p class="text-brand-red font-semibold mb-4">Tema: "Naslov predavanja"</p>
+                                        
+                                        <div class="text-gray-700 leading-relaxed text-sm">
+                                            <p>
+                                                Prof. John Jackson je renomirani profesor na Univerzitetu XYZ, sa specijalizacijom u oblasti hispanske književnosti i kulture.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lecture 2 -->
+                        <div class="border-l-4 border-brand-red pl-6 py-6 bg-white">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i data-lucide="clock" class="w-5 h-5 text-brand-red"></i>
+                                <h4 class="font-heading text-xl font-bold text-gray-800">16:00 - 17:00h</h4>
+                            </div>
+                            
+                            <!-- Lecturer Card -->
+                            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden border border-gray-200">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3 bg-gray-200 flex items-center justify-center p-8">
+                                        <div class="w-40 h-40 bg-gray-300 rounded-full flex items-center justify-center">
+                                            <i data-lucide="user" class="w-12 h-12 text-gray-500"></i>
+                                        </div>
+                                    </div>
+                                    <div class="md:w-2/3 p-6">
+                                        <h3 class="font-heading text-xl font-bold text-brand-black mb-2">Prof. Janet Petrović</h3>
+                                        <p class="text-brand-red font-semibold mb-4">Tema: "Naslov predavanja"</p>
+                                        
+                                        <div class="text-gray-700 leading-relaxed text-sm">
+                                            <p>
+                                                Prof. Janet Petrović predaje na Filološkom fakultetu...
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Lecturer 2 -->
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8 border border-gray-200">
-                        <div class="md:flex">
-                            <div class="md:w-1/3 bg-gray-200 flex items-center justify-center p-8">
-                                <div class="w-48 h-48 bg-gray-300 rounded-full flex items-center justify-center">
-                                    <i data-lucide="user" class="w-16 h-16 text-gray-500"></i>
+                    <!-- DAY 2 - Thursday -->
+                    <div class="mb-16">
+                        <div class="bg-brand-red text-white py-4 px-6 rounded-t-xl">
+                            <h3 class="font-heading text-2xl font-bold">Četvrtak, 16. Juli 2026</h3>
+                        </div>
+
+                        <!-- Lecture 1 -->
+                        <div class="border-l-4 border-brand-red pl-6 py-6 bg-white">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i data-lucide="clock" class="w-5 h-5 text-brand-red"></i>
+                                <h4 class="font-heading text-xl font-bold text-gray-800">10:00 - 11:30h</h4>
+                            </div>
+                            
+                            <!-- Lecturer Card -->
+                            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden border border-gray-200">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3 bg-gray-200 flex items-center justify-center p-8">
+                                        <div class="w-40 h-40 bg-gray-300 rounded-full flex items-center justify-center">
+                                            <i data-lucide="user" class="w-12 h-12 text-gray-500"></i>
+                                        </div>
+                                    </div>
+                                    <div class="md:w-2/3 p-6">
+                                        <h3 class="font-heading text-xl font-bold text-brand-black mb-2">Dr. Ime Prezime</h3>
+                                        <p class="text-brand-red font-semibold mb-4">Tema: "Naslov predavanja"</p>
+                                        
+                                        <div class="text-gray-700 leading-relaxed text-sm">
+                                            <p>
+                                                Dr. Ime Prezime je stručnjak/kinja za...
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="md:w-2/3 p-8">
-                                <h3 class="font-heading text-2xl font-bold text-brand-black mb-2">Prof. Ime Prezime</h3>
-                                <p class="text-brand-red font-semibold mb-4">Tema: "Naslov predavanja"</p>
-                                
-                                <div class="text-gray-700 leading-relaxed space-y-3">
-                                    <p>
-                                        Prof. Ime Prezime predaje na Filološkom fakultetu... [biografija]
-                                    </p>
-                                    <p>
-                                        Njena/njegova područja istraživanja pokrivaju... [relevantne informacije]
-                                    </p>
+                        </div>
+
+                        <!-- Add more lectures for Thursday as needed -->
+
+                    </div>
+
+                    <!-- DAY 3 - Friday (Example) -->
+                    <div class="mb-16">
+                        <div class="bg-brand-red text-white py-4 px-6 rounded-t-xl">
+                            <h3 class="font-heading text-2xl font-bold">Petak, 17. Juli 2026</h3>
+                        </div>
+
+                        <!-- Add Friday's lectures here -->
+                        <div class="border-l-4 border-brand-red pl-6 py-6 bg-white">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i data-lucide="clock" class="w-5 h-5 text-brand-red"></i>
+                                <h4 class="font-heading text-xl font-bold text-gray-800">09:00 - 10:30h</h4>
+                            </div>
+                            
+                            <!-- Lecturer Card -->
+                            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden border border-gray-200">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3 bg-gray-200 flex items-center justify-center p-8">
+                                        <div class="w-40 h-40 bg-gray-300 rounded-full flex items-center justify-center">
+                                            <i data-lucide="user" class="w-12 h-12 text-gray-500"></i>
+                                        </div>
+                                    </div>
+                                    <div class="md:w-2/3 p-6">
+                                        <h3 class="font-heading text-xl font-bold text-brand-black mb-2">Dr. Ime Prezime</h3>
+                                        <p class="text-brand-red font-semibold mb-4">Tema: "Naslov predavanja"</p>
+                                        
+                                        <div class="text-gray-700 leading-relaxed text-sm">
+                                            <p>
+                                                Biografija predavača...
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Lecturer 3 -->
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8 border border-gray-200">
-                        <div class="md:flex">
-                            <div class="md:w-1/3 bg-gray-200 flex items-center justify-center p-8">
-                                <div class="w-48 h-48 bg-gray-300 rounded-full flex items-center justify-center">
-                                    <i data-lucide="user" class="w-16 h-16 text-gray-500"></i>
-                                </div>
-                            </div>
-                            <div class="md:w-2/3 p-8">
-                                <h3 class="font-heading text-2xl font-bold text-brand-black mb-2">Dr. Ime Prezime</h3>
-                                <p class="text-brand-red font-semibold mb-4">Tema: "Naslov predavanja"</p>
-                                
-                                <div class="text-gray-700 leading-relaxed space-y-3">
-                                    <p>
-                                        Dr. Ime Prezime je stručnjak/kinja za... [biografija]
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Add more lecturers as needed -->
+                    <!-- Continue with remaining days... -->
 
                 </div>
             </div>
