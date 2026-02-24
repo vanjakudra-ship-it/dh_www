@@ -8,7 +8,7 @@ const uiTranslations = {
         // Dropdown Items
         nav_proj_overview: "Pregled",
         nav_proj_2026: "Letnja škola 2026",
-        nav_proj_archive: "Arhiva",
+        nav_proj_archive: "Prethodne škole",
         nav_proj_other: "Ostali Projekti",
         
         footer_rights: "Sva prava zadržana.",
@@ -22,7 +22,7 @@ const uiTranslations = {
         // Dropdown Items
         nav_proj_overview: "Overview",
         nav_proj_2026: "Summer School 2026",
-        nav_proj_archive: "Archive",
+        nav_proj_archive: "Previous Schools",
         nav_proj_other: "Other Projects",
 
         footer_rights: "All rights reserved.",
@@ -30,14 +30,14 @@ const uiTranslations = {
     },
     es: {
         nav_home: "Inicio",
-        nav_about: "Sobre Nosotros",
+        nav_about: "Sobre nosotros",
         nav_projects: "Proyectos",
         nav_contact: "Contacto",
         // Dropdown Items
         nav_proj_overview: "Resumen",
         nav_proj_2026: "Escuela de Verano 2026",
-        nav_proj_archive: "Archivo",
-        nav_proj_other: "Otros Proyectos",
+        nav_proj_archive: "Previas escuelas",
+        nav_proj_other: "Otros proyectos",
 
         footer_rights: "Todos los derechos reservados.",
         back_link: "Volver"
