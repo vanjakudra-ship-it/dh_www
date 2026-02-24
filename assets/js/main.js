@@ -47,6 +47,33 @@ const uiTranslations = {
 function changeLang(lang) {
     localStorage.setItem('lang', lang);
 
+    // Detect current file language FIRST
+    const path = window.location.pathname;
+    let filename = path.split('/').pop() || "index.html";
+    
+    let currentFileLang = 'sr'; 
+    if (filename.includes('-en.html')) currentFileLang = 'en';
+    if (filename.includes('-es.html')) currentFileLang = 'es';
+    if (filename.includes('-sr.html')) currentFileLang = 'sr';
+
+    // CRITICAL: Only redirect if we're NOT already on the correct language page
+    if (currentFileLang !== lang) {
+        let baseName = filename.replace(/-en.html|-es.html|-sr.html|.html/g, "");
+        let newFilename;
+        const isCorePage = ['index', 'about', 'contact'].includes(baseName);
+
+        if (lang === 'sr') {
+            newFilename = isCorePage ? baseName + ".html" : baseName + "-sr.html";
+        } else {
+            newFilename = baseName + "-" + lang + ".html";
+        }
+
+        // REDIRECT with Hash preserved (e.g., #archive)
+        window.location.href = path.replace(filename, newFilename) + window.location.hash;
+        return; // Exit early, don't update UI (page is reloading anyway)
+    }
+
+    // If we're already on the correct language page, just update the UI
     // 1. Update Text
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -64,31 +91,6 @@ function changeLang(lang) {
             btn.classList.toggle('text-gray-400', l !== lang);
         }
     });
-
-    // 3. SMART REDIRECT (Preserves #Anchors now)
-    const path = window.location.pathname;
-    let filename = path.split('/').pop() || "index.html";
-
-    // Logic to detect current file language
-    let currentFileLang = 'sr'; 
-    if (filename.includes('-en.html')) currentFileLang = 'en';
-    if (filename.includes('-es.html')) currentFileLang = 'es';
-    if (filename.includes('-sr.html')) currentFileLang = 'sr';
-
-    if (currentFileLang !== lang) {
-        let baseName = filename.replace(/-en.html|-es.html|-sr.html|.html/g, "");
-        let newFilename;
-        const isCorePage = ['index', 'about', 'contact'].includes(baseName);
-
-        if (lang === 'sr') {
-            newFilename = isCorePage ? baseName + ".html" : baseName + "-sr.html";
-        } else {
-            newFilename = baseName + "-" + lang + ".html";
-        }
-
-        // REDIRECT with Hash preserved (e.g., #archive)
-        window.location.href = path.replace(filename, newFilename) + window.location.hash;
-    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
