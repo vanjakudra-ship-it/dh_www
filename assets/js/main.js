@@ -63,16 +63,13 @@ function changeLang(lang) {
     if (currentFileLang !== lang) {
         console.log('Languages differ - redirecting');
         let baseName = filename.replace(/-en.html|-es.html|-sr.html|.html/g, "");
-        let newFilename;
-        const isCorePage = ['index', 'about', 'contact'].includes(baseName);
-
-        if (lang === 'sr') {
-            newFilename = isCorePage ? baseName + ".html" : baseName + "-sr.html";
-        } else {
-            newFilename = baseName + "-" + lang + ".html";
-        }
+        let newFilename = baseName + "-" + lang + ".html";
 
         console.log('Redirecting to:', newFilename);
+        
+        // Set flag to prevent DOMContentLoaded from running after redirect
+        sessionStorage.setItem('justRedirected', 'true');
+        
         // REDIRECT - simple, one time only
         window.location.href = path.replace(filename, newFilename) + window.location.hash;
         return;
@@ -106,11 +103,10 @@ function updateUI(lang) {
     // Update navigation links to match current language
     document.querySelectorAll('[data-lang-link]').forEach(link => {
         const basePath = link.getAttribute('data-lang-link');
-        const isCorePage = basePath.startsWith('index') || basePath.startsWith('about') || basePath.startsWith('contact');
         
         let newHref;
         if (lang === 'sr') {
-            newHref = isCorePage ? `/${basePath}.html` : `/${basePath}-sr.html`;
+            newHref = `/${basePath}-sr.html`;
         } else {
             newHref = `/${basePath}-${lang}.html`;
         }
@@ -121,6 +117,25 @@ function updateUI(lang) {
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log('DOMContentLoaded fired');
+    
+    // Check if we just redirected - if so, skip and just clear the flag
+    if (sessionStorage.getItem('justRedirected') === 'true') {
+        console.log('Just redirected - clearing flag and skipping DOMContentLoaded logic');
+        sessionStorage.removeItem('justRedirected');
+        
+        // Still need to update UI for the current page
+        const path = window.location.pathname;
+        let filename = path.split('/').pop() || "index.html";
+        
+        let currentFileLang = 'sr'; 
+        if (filename.includes('-en.html')) currentFileLang = 'en';
+        if (filename.includes('-es.html')) currentFileLang = 'es';
+        if (filename.includes('-sr.html')) currentFileLang = 'sr';
+        
+        updateUI(currentFileLang);
+        return;
+    }
+    
     // Detect what language page we're on
     const path = window.location.pathname;
     let filename = path.split('/').pop() || "index.html";

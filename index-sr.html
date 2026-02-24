@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Društvo hispanista</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="/assets/js/theme-config.js"></script>
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white text-gray-800 flex flex-col min-h-screen">
+
+    <div id="header-placeholder"></div>
+
+    <main class="flex-grow fade-in">
+        <div class="relative bg-brand-black text-white overflow-hidden">
+            <div class="absolute inset-0 hero-pattern"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/90 to-brand-red/40"></div>
+            
+            <div class="container mx-auto px-6 py-24 md:py-32 relative z-10">
+                <div class="max-w-3xl">
+                    <div class="inline-block bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full mb-6 uppercase tracking-wider animate-pulse">
+                        <span data-i18n="hero_badge">EVELA 2026</span>
+                    </div>
+                    <h1 class="font-heading text-4xl md:text-6xl font-extrabold leading-tight mb-6" data-i18n="hero_title">
+                        Latinska Amerika <br> <span class="text-brand-red">i Karibi u fokusu</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed" data-i18n="hero_desc">
+                        Jubilarno 10. izdanje letnje škole latinoameričkih studija. Već deceniju organizujemo međunarodne susrete mladih ljudi i vrsnih predavača.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="/projects/current-school-sr.html" class="bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-brand-red/50 transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                            <span data-i18n="hero_cta_primary">Prijavi se</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="/about.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-brand-black text-white font-bold py-4 px-8 rounded-lg transition flex items-center justify-center gap-2">
+                            <span data-i18n="hero_cta_secondary">Saznaj više o nama</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-gray-50 border-b border-gray-200">
+            <div class="container mx-auto px-6 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="p-4">
+                        <div class="w-12 h-12 bg-brand-red/10 text-brand-red rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="globe" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl mb-2" data-i18n="feat_1_title">Međunarodno umrežavanje</h3>
+                        <p class="text-gray-600 text-sm" data-i18n="feat_1_desc">Učesnici iz preko 25 zemalja Evrope, Amerike i Azije.</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="w-12 h-12 bg-brand-red/10 text-brand-red rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="book-open" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl mb-2" data-i18n="feat_2_title">Interdisciplinarnost</h3>
+                        <p class="text-gray-600 text-sm" data-i18n="feat_2_desc">Od politike do književnosti - razumevanje Latinske Amerike iz više perspektiva.</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="w-12 h-12 bg-brand-red/10 text-brand-red rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="users" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl mb-2" data-i18n="feat_3_title">Kulturne aktivnosti</h3>
+                        <p class="text-gray-600 text-sm" data-i18n="feat_3_desc">Hispanska i srpska kultura u dijalogu - događaji koji povezuju ljude i ideje.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 py-20">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="font-heading text-3xl font-bold mb-6 border-l-4 border-brand-red pl-4" data-i18n="mission_title">Naša Misija</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="mission_text">
+                        Realizacija različitih projekata i aktivnosti s ciljem podsticanja kritičkog mišljenja, kreativnosti i radoznalosti, kao i uspostavljanja kontakta srpske publike sa iberoameričkim svetom, te naglašavanja važnosti i potrebe za učenjem španskog i portugalskog jezika, što bi omogućilo pristup širem znanju o iberoameričkim studijama, njihovoj raznolikosti, složenosti i značaju u svetu koji se menja.
+                    </p>
+                    <a href="/about.html" class="text-brand-red font-bold hover:underline inline-flex items-center gap-1">
+                        <span data-i18n="read_more">Pročitaj više</span> <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gray-100 rounded-2xl p-8 border border-gray-200 shadow-sm relative">
+                        <div class="absolute -top-4 -right-4 w-20 h-20 bg-brand-red/20 rounded-full blur-xl"></div>
+                        <blockquote class="italic text-gray-700 text-lg relative z-10" data-i18n="quote">
+                            "Ono što je na kocki u obrazovanju jeste svet." Horhe Larosa
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/components.js"></script>
+</body>
+</html>
