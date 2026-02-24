@@ -44,15 +44,10 @@ const uiTranslations = {
     }
 };
 
-// Flag to prevent race conditions
-let isChangingLanguage = false;
-
 function changeLang(lang) {
-    if (isChangingLanguage) return; // Prevent multiple simultaneous changes
-    
     localStorage.setItem('lang', lang);
 
-    // Detect current file language FIRST
+    // Detect current file language
     const path = window.location.pathname;
     let filename = path.split('/').pop() || "index.html";
     
@@ -61,9 +56,8 @@ function changeLang(lang) {
     if (filename.includes('-es.html')) currentFileLang = 'es';
     if (filename.includes('-sr.html')) currentFileLang = 'sr';
 
-    // CRITICAL: Only redirect if we're NOT already on the correct language page
+    // Only redirect if clicking a DIFFERENT language
     if (currentFileLang !== lang) {
-        isChangingLanguage = true; // Set flag before redirecting
         let baseName = filename.replace(/-en.html|-es.html|-sr.html|.html/g, "");
         let newFilename;
         const isCorePage = ['index', 'about', 'contact'].includes(baseName);
@@ -74,13 +68,17 @@ function changeLang(lang) {
             newFilename = baseName + "-" + lang + ".html";
         }
 
-        // REDIRECT with Hash preserved (e.g., #archive)
+        // REDIRECT - simple, one time only
         window.location.href = path.replace(filename, newFilename) + window.location.hash;
-        return; // Exit early, don't update UI (page is reloading anyway)
+        return;
     }
 
-    // If we're already on the correct language page, just update the UI
-    // 1. Update Text
+    // Update UI only if already on correct language page
+    updateUI(lang);
+}
+
+function updateUI(lang) {
+    // Update Text
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (uiTranslations[lang] && uiTranslations[lang][key]) {
@@ -88,7 +86,7 @@ function changeLang(lang) {
         }
     });
 
-    // 2. Update Buttons
+    // Update Buttons
     ['sr', 'es', 'en'].forEach(l => {
         const btn = document.getElementById(`btn-${l}`);
         if(btn) {
@@ -100,13 +98,20 @@ function changeLang(lang) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Delay auto-language slightly to let user clicks take precedence
-    setTimeout(() => {
-        if (!isChangingLanguage) {
-            const savedLang = localStorage.getItem('lang') || 'sr';
-            changeLang(savedLang);
-        }
-    }, 100);
+    // Detect what language page we're on
+    const path = window.location.pathname;
+    let filename = path.split('/').pop() || "index.html";
+    
+    let currentFileLang = 'sr'; 
+    if (filename.includes('-en.html')) currentFileLang = 'en';
+    if (filename.includes('-es.html')) currentFileLang = 'es';
+    if (filename.includes('-sr.html')) currentFileLang = 'sr';
+    
+    // Save the current page language to localStorage
+    localStorage.setItem('lang', currentFileLang);
+    
+    // Just update the UI to match current page - NO redirects on page load
+    updateUI(currentFileLang);
 });
 
 /* =========================================
