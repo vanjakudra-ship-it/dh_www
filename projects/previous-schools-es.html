@@ -26,17 +26,17 @@
             
             <!-- Sticky Year Navigation -->
             <div id="year-nav" class="sticky top-[73px] bg-white/95 backdrop-blur-sm border-b border-gray-200 z-40 shadow-sm mb-8">
-                <div class="flex items-center justify-center gap-2 py-4 overflow-x-auto">
-                    <span class="text-gray-500 text-sm font-semibold mr-2 hidden md:inline">Acceso rápido:</span>
-                    <a href="#2025" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap">2025</a>
-                    <a href="#2024" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap">2024</a>
-                    <a href="#2023" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap">2023</a>
-                    <a href="#2022" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap">2022</a>
-                    <a href="#2021" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap">2021</a>
-                    <a href="#2020" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap">2020</a>
-                    <a href="#2019" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap">2019</a>
-                    <a href="#2018" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap">2018</a>
-                    <a href="#2017" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap">2017</a>
+                <div id="year-links" class="flex items-center justify-start md:justify-center gap-2 py-4 overflow-x-auto px-4">
+                    <span class="text-gray-500 text-sm font-semibold mr-2 hidden md:inline flex-shrink-0">Acceso rápido:</span>
+                    <a href="#2025" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap flex-shrink-0">2025</a>
+                    <a href="#2024" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap flex-shrink-0">2024</a>
+                    <a href="#2023" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap flex-shrink-0">2023</a>
+                    <a href="#2022" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap flex-shrink-0">2022</a>
+                    <a href="#2021" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap flex-shrink-0">2021</a>
+                    <a href="#2020" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap flex-shrink-0">2020</a>
+                    <a href="#2019" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap flex-shrink-0">2019</a>
+                    <a href="#2018" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap flex-shrink-0">2018</a>
+                    <a href="#2017" class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-red hover:text-white transition whitespace-nowrap flex-shrink-0">2017</a>
                 </div>
             </div>
             
@@ -106,6 +106,14 @@
         }
 
         document.addEventListener('DOMContentLoaded', loadSchools);
+        
+        // Reset year navigation scroll to show 2025/2024 on mobile
+        window.addEventListener('load', () => {
+            const yearNav = document.getElementById('year-links');
+            if (yearNav) {
+                yearNav.scrollLeft = 0;
+            }
+        });
     </script>
 </body>
 </html>
