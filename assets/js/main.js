@@ -44,7 +44,12 @@ const uiTranslations = {
     }
 };
 
+// Flag to prevent race conditions
+let isChangingLanguage = false;
+
 function changeLang(lang) {
+    if (isChangingLanguage) return; // Prevent multiple simultaneous changes
+    
     localStorage.setItem('lang', lang);
 
     // Detect current file language FIRST
@@ -58,6 +63,7 @@ function changeLang(lang) {
 
     // CRITICAL: Only redirect if we're NOT already on the correct language page
     if (currentFileLang !== lang) {
+        isChangingLanguage = true; // Set flag before redirecting
         let baseName = filename.replace(/-en.html|-es.html|-sr.html|.html/g, "");
         let newFilename;
         const isCorePage = ['index', 'about', 'contact'].includes(baseName);
@@ -94,8 +100,13 @@ function changeLang(lang) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const savedLang = localStorage.getItem('lang') || 'sr';
-    changeLang(savedLang);
+    // Delay auto-language slightly to let user clicks take precedence
+    setTimeout(() => {
+        if (!isChangingLanguage) {
+            const savedLang = localStorage.getItem('lang') || 'sr';
+            changeLang(savedLang);
+        }
+    }, 100);
 });
 
 /* =========================================
