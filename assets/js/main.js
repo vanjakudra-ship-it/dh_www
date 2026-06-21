@@ -7,7 +7,7 @@ const uiTranslations = {
         nav_contact: "Kontakt",
         // Dropdown Items
         nav_proj_overview: "Pregled",
-        nav_proj_2026: "Letnja škola 2026",
+        nav_proj_2026: "Okrugli sto 2026",
         nav_proj_archive: "Prethodne škole",
         nav_proj_other: "Ostali Projekti",
         
@@ -21,7 +21,7 @@ const uiTranslations = {
         nav_contact: "Contact",
         // Dropdown Items
         nav_proj_overview: "Overview",
-        nav_proj_2026: "Summer School 2026",
+        nav_proj_2026: "Round table 2026",
         nav_proj_archive: "Previous Schools",
         nav_proj_other: "Other Projects",
 
@@ -35,7 +35,7 @@ const uiTranslations = {
         nav_contact: "Contacto",
         // Dropdown Items
         nav_proj_overview: "Resumen",
-        nav_proj_2026: "Escuela de Verano 2026",
+        nav_proj_2026: "Mesa redonda 2026",
         nav_proj_archive: "Previas escuelas",
         nav_proj_other: "Otros proyectos",
 
